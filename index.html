@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<title>Todo list App</title>
+  </head>
+  <body>
+    <p class="para">Todo list </p>
+    <div class="js-todo-input">
+    <input class="js-input" placeholder="Todo name" >
+    <input class="js-date"type="date">
+    <button class="add-but" onclick="
+    addtodo();
+    ">Add</button>
+    </div>
+    <div class="js-todolist">
+    </div>
+    <style>
+      .delete-but{
+        background-color: rgb(167, 49, 199);
+        color:white;
+        border-style: none;
+        padding:12px 13px 12px 13px;
+        
+      }
+      
+    .para {
+      color: #ffffff;
+      text-align: center;
+      font-size: 50px;
+      margin-top: 40px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      letter-spacing: 3px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+      }
+      to {
+        text-shadow: 0 0 20px #00ffff, 0 0 30px #00ffff;
+      }
+    }
+      .delete-but:hover{
+        background-color: #dd3f3f;
+        opacity: 0.8;
+        color:rgb(240, 241, 231);
+      }
+
+      .add-but{
+           background-color: rgb(191, 32, 114);
+        color:white;
+        border-style: none;
+        padding:12px 13px 12px 13px;
+      }
+        .add-but:hover{
+        background-color: #4fa02a;
+        opacity: 0.1px;
+        color:rgb(238, 230, 230);
+      }
+.js-input,.js-date{
+  font-size: 14px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  padding:6px;
+}
+body{
+  font-family: Times, serif;
+
+  padding: 20px;
+     background-image: url('https://www.dailynurse.com/wp-content/uploads/2024/11/10-uplifting-quotes-to-inspire-nurses-through-the-year-end-hustle-and-holiday-cheer.png');
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: Arial, sans-serif;
+        color: white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-shadow: 1px 1px 4px #000;
+
+}
+      
+      .js-todolist,.js-todo-input{
+        display:grid;
+        grid-template-columns:200px 150px 100px;
+        column-gap: 20px;
+        row-gap: 20px;
+        
+
+      }
+      .js-todo-input{margin-bottom:20px;}
+     
+    </style>
+    <script>
+const todolist = [
+  { name: 'Going to Gym', duedate: '2025-05-16' },
+  { name: 'Meeting at 12am', duedate: '2025-05-31' }
+];
+
+renderTodolist();
+
+function renderTodolist() {
+  let todolistHTML = '';
+  for (let i = 0; i < todolist.length; i++) {
+    const todoobj = todolist[i];
+    const nameobj = todoobj.name;
+    const due = todoobj.duedate;
+    
+    const html = `
+      <div>${nameobj}</div>
+      <div>${due}</div> 
+      <button class="delete-but" onclick="
+        todolist.splice(${i}, 1);
+        renderTodolist();
+      ">Delete</button>
+    `;
+    todolistHTML += html;
+  }
+
+  document.querySelector('.js-todolist').innerHTML = todolistHTML;
+}
+
+function addtodo() {
+  const inputvalue = document.querySelector('.js-input');
+  const name = inputvalue.value;
+  const dateinputelement = document.querySelector('.js-date');
+  const duedate = dateinputelement.value;
+
+  if (name && duedate) {
+    todolist.push({ name, duedate });
+    inputvalue.value = '';
+    dateinputelement.value = '';
+    renderTodolist();
+  } else {
+    alert("Please enter both a task and a due date.");
+  }
+}
+</script>
+
+  </body>
+</html>

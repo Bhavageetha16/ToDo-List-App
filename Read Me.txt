@@ -1,0 +1,41 @@
+Project Name: ToDo List App
+
+Tech Stack: HTML, CSS, JavaScript
+
+Purpose: A lightweight and responsive task management app
+
+Features:
+
+Add new tasks
+
+Mark tasks as completed
+
+Delete tasks
+
+Fully responsive on all devices
+
+Design: Clean, simple UI with smooth interactions
+
+Created On: June 2025
+
+Live Link: https://bhavageethatodolist.netlify.app
+
+Role: Frontend Developer
+
+Use Case: Helps users organize daily activities efficiently
+
+
+Notes:
+Built using HTML, CSS, and JavaScript.
+
+A simple and responsive task manager for daily use.
+
+Users can add, mark as complete, and delete tasks easily.
+
+Clean and mobile-friendly UI design for all screen sizes.
+
+Uses core JavaScript DOM manipulation and event handling.
+
+No backend — fully frontend-based logic and interactivity.
+
+Strengthened my skills in UI behavior, responsive design, and JS functionality.
